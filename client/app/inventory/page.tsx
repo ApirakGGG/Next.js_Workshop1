@@ -5,7 +5,7 @@ import Header from "../(Components)/Header/Header";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 
-//columns
+//columns กำหนดfield ต่างๆ
 const columns: GridColDef[] = [
   { field: "productId", headerName: "ID", width: 180 },
   { field: "name", headerName: "Product Name", width: 200 },
