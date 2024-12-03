@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client ";
 import React from "react";
 import Image from "next/image";
 import { SearchIcon, PlusCircleIcon } from "lucide-react";
 import Header from "../(Components)/Header/Header";
 import Rating from "../(Components)/Rating/Rating";
+import CreateProductsModal from "./CreateProductsModal";
 
 const Products = () => {
   return (
@@ -78,6 +80,7 @@ const Products = () => {
 
       {/* Modal */}
       {/* Add New Product */}
+      {/* <CreateProductsModal  /> */}
     </div>
   );
 };

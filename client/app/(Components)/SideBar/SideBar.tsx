@@ -125,7 +125,7 @@ const SideBar = () => {
         />
         {/* Product */}
         <SidebarLink
-          href="/product"
+          href="/products"
           icon={Clipboard}
           label="PRODUCTS"
           isCollapsed={isSidebarCollapsed}
