@@ -100,7 +100,7 @@ export const api = createApi({
       //ใช้เพื่ออัปเดตข้อมูลสินค้าในระบบหลังการสร้างสินค้าใหม่
       invalidatesTags: ["Products"],
     }),
-    getUsers: build.query<User[], void>({
+    getUsers: build.query<User[], void>({ //กำหนดให้คืนค่าเป็นArray สำหรับ Users
       query: () => "/users", //endpoint Api User
       providesTags: ["Users"],
     }),
