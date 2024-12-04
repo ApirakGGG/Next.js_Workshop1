@@ -70,7 +70,7 @@ export interface DashBoard {
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_BASE_URL }),
   reducerPath: "api",
-  tagTypes: ["DashBoard", "Products"],
+  tagTypes: ["DashBoard", "Products", "Users"],
   endpoints: (build) => ({
     //ชื่อ query สำหรับเรียกใช้ใน Components
     getdashBoard: build.query<DashBoard, void>({
@@ -100,6 +100,10 @@ export const api = createApi({
       //ใช้เพื่ออัปเดตข้อมูลสินค้าในระบบหลังการสร้างสินค้าใหม่
       invalidatesTags: ["Products"],
     }),
+    getUsers: build.query<User[], void>({
+      query: () => "/users", //endpoint Api User
+      providesTags: ["Users"],
+    }),
   }),
 });
 
@@ -107,4 +111,5 @@ export const {
   useGetdashBoardQuery,
   useGetProductQuery,
   useCreateProductMutation,
-} = api; //getdashBoard
+  useGetUsersQuery,
+} = api; 

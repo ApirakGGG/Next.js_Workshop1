@@ -13,6 +13,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const dashboardRoute_1 = __importDefault(require("./routes/dashboardRoute"));
 const getUsersRoute_1 = __importDefault(require("./routes/getUsersRoute"));
 const getProductRoute_1 = __importDefault(require("./routes/getProductRoute"));
+const getExpenseRoute_1 = __importDefault(require("./routes/getExpenseRoute"));
 // Configuration
 dotenv_1.default.config();
 const app = (0, express_1.default)(); //จัดการ HTTP requests และกำหนด routing
@@ -28,8 +29,9 @@ app.use((0, cors_1.default)()); //เพื่ออนุญาตให้ cli
 // Dashboard route กำหนด route handler:  ฟังก์ชันที่จะจัดการคำขอนั้น
 //ส่งคำขอนี้มายัง router.get("/", getdashBoard).
 app.use("/dashboard", dashboardRoute_1.default); // http://localhost:8000/dashboard
-app.use("/users", getUsersRoute_1.default); // http://localhost:8000/Users
-app.use("/products", getProductRoute_1.default); // http://localhost:8000/Products
+app.use("/users", getUsersRoute_1.default); // http://localhost:8000/users
+app.use("/products", getProductRoute_1.default); // http://localhost:8000/products
+app.use("/expense", getExpenseRoute_1.default); // http://localhost:8000/expense
 //Server
 const port = process.env.PORT || 3001; //รันบน Port 8000 || 3001
 app.listen(port, () => {

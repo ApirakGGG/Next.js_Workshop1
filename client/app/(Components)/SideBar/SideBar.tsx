@@ -132,7 +132,7 @@ const SideBar = () => {
         />
         {/* user */}
         <SidebarLink
-          href="/user"
+          href="/users"
           icon={User}
           label="USER"
           isCollapsed={isSidebarCollapsed}
@@ -146,7 +146,7 @@ const SideBar = () => {
         />
         {/* Expensive */}
         <SidebarLink
-          href="/expensive"
+          href="/expense"
           icon={CircleDollarSign}
           label="EXPENSIVE"
           isCollapsed={isSidebarCollapsed}

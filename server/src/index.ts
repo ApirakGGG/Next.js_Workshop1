@@ -8,6 +8,7 @@ import morgan from "morgan";
 import dashboardRoute from "./routes/dashboardRoute"
 import getUsersRoute from "./routes/getUsersRoute"
 import getProducts from "./routes/getProductRoute"
+import getexpense from "./routes/getExpenseRoute"
 
 // Configuration
 dotenv.config();
@@ -27,8 +28,9 @@ app.use(cors()); //เพื่ออนุญาตให้ client-side applic
 // Dashboard route กำหนด route handler:  ฟังก์ชันที่จะจัดการคำขอนั้น
 //ส่งคำขอนี้มายัง router.get("/", getdashBoard).
 app.use("/dashboard", dashboardRoute ); // http://localhost:8000/dashboard
-app.use("/users", getUsersRoute ); // http://localhost:8000/Users
-app.use("/products", getProducts); // http://localhost:8000/Products
+app.use("/users", getUsersRoute ); // http://localhost:8000/users
+app.use("/products", getProducts); // http://localhost:8000/products
+app.use("/expense", getexpense); // http://localhost:8000/expense
 //Server
 const port = process.env.PORT || 3001; //รันบน Port 8000 || 3001
 app.listen(port, () => {

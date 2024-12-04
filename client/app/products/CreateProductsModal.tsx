@@ -40,6 +40,7 @@ const CreateProductsModal = ({
           ? parseFloat(value) // แปลงเป็นตัวเลขถ้าเป็นฟิลด์ตัวเลข
           : value, // ถ้าไม่ใช่ ให้เก็บเป็น string
     });
+    // clear input
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -48,6 +49,18 @@ const CreateProductsModal = ({
     onClose(); // ปิด Modal หลังจากสร้างสินค้า
   };
 
+  //รีเซ็ตค่า input
+  const handleClear = () => {
+    // ส่งค่าเรื่มต้นที่เป็น 0 ทั้งหมดไป updated ที่ state
+    setFromData({
+      productId: v4(),
+      name: "",
+      price: 0,
+      stockQuantity: 0,
+      rating: 0,
+    });
+  }
+
   //ถ้าไม่กดisOpen ให้ return null
   //ถ้ากด isopen return Modal Components
   if (!isOpen) {
@@ -55,14 +68,15 @@ const CreateProductsModal = ({
   }
 
   const labelstyle = "block text-sm font-medium text-slate-700";
-  const inputstyle = "block w-full border-gray-500 border-2 rounded-md";
+  const inputstyle =
+    "block w-full border-gray-500 border-2 rounded-md mb-2 p-1 bg-white";
   return (
-    <div className="fixed inset-0 bg-gray-500 bg-opacity-50 overflow-y-auto h-full w-full z-20">
+    <div className="fixed inset-0  bg-opacity-50 overflow-y-auto h-full w-full z-20">
       <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
         <Header name="Create New Product" />
         <form onSubmit={handleSubmit} className="mt-5">
           {/* // product Name */}
-          <label htmlFor="productName" className={labelstyle}>
+          <label htmlFor="productName" className={`${labelstyle} py-2`}>
             Product Name
           </label>
           <input
@@ -70,13 +84,13 @@ const CreateProductsModal = ({
             name="name"
             onChange={handleChange}
             value={fromData.name}
-            placeholder="Name"
+            placeholder="name"
             className={inputstyle}
             required
           />
 
           {/* // product Price */}
-          <label htmlFor="productPrice" className={labelstyle}>
+          <label htmlFor="productPrice" className={`${labelstyle} py-2`}>
             Product Price
           </label>
           <input
@@ -90,7 +104,7 @@ const CreateProductsModal = ({
           />
 
           {/* //  Stock Quantity */}
-          <label htmlFor="stockQuantity" className={labelstyle}>
+          <label htmlFor="stockQuantity" className={`${labelstyle} py-2`}>
             Stock Quantity
           </label>
           <input
@@ -104,7 +118,7 @@ const CreateProductsModal = ({
           />
 
           {/* // product Rating */}
-          <label htmlFor="rating" className={labelstyle}>
+          <label htmlFor="rating" className={`${labelstyle} py-2`}>
             Product Rating
           </label>
           <input
@@ -120,15 +134,18 @@ const CreateProductsModal = ({
           {/* Create Action */}
           <button
             type="submit"
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+            className="m-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
           >
             Create
+          </button>
+          <button onClick={handleClear} className="m-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-700 text-white rounded">
+            Clear
           </button>
           {/* Cancle Button */}
           <button
             type="button"
             onClick={onClose}
-            className="m-2 px-4 bg-red-500 hover:bg-red-700 text-white rounded"
+            className="m-2 px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded"
           >
             Cancle
           </button>
