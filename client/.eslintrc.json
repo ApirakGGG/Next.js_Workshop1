@@ -1,7 +1,8 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript"],
-   //turn ooff notification "Any" types
+   //turn ooff notification "Any" types & no-unused-vars
    "rules": {
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }

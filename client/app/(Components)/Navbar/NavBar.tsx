@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { Menu, Bell, Sun, Settings, Moon } from "lucide-react";
 import Link from "next/link";
 import { useAppSelector, useAppDispatch } from "@/app/redux";
@@ -82,12 +83,12 @@ const NavBar = () => {
           </div>
           <hr className="w-0 h-7 border-solid border-l border-gray-300 mx-3" />
           <div className="flex items-center cursor-pointer gap-3">
-            <div className="w-9 h-9">image</div>
+            <Image src="" alt="Profiles" width={40} height={40} className="rounded-full object-cover" />
             <span className="font-semibold">Name</span>
           </div>
         </div>
         {/* Settings */}
-        <Link href="/settings">
+        <Link href="/setting">
           <Settings className="cursor-pointer text-gray-500" size={20} />
         </Link>
       </div>

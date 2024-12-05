@@ -137,18 +137,18 @@ const SideBar = () => {
           label="USER"
           isCollapsed={isSidebarCollapsed}
         />
-        {/* Setting */}
-        <SidebarLink
-          href="/setting"
-          icon={SlidersHorizontal}
-          label="Setting"
-          isCollapsed={isSidebarCollapsed}
-        />
         {/* Expensive */}
         <SidebarLink
           href="/expense"
           icon={CircleDollarSign}
           label="EXPENSIVE"
+          isCollapsed={isSidebarCollapsed}
+        />
+        {/* Setting */}
+        <SidebarLink
+          href="/setting"
+          icon={SlidersHorizontal}
+          label="Setting"
           isCollapsed={isSidebarCollapsed}
         />
       </div>
