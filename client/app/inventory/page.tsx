@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { useGetProductQuery } from "@/state/api";
 import Header from "../(Components)/Header/Header";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
@@ -37,8 +38,16 @@ const Inventorry = () => {
   const { data: product, isError, isLoading } = useGetProductQuery();
   // console.log("Product:", product);
 
-  if (isLoading) {
-    return <p className="p-4">Loading...</p>;
+  if (!isLoading) {
+    return <div className="flex justify-center items-center mt-96">
+    <Image
+      className="bg-transparent"
+      src={"/Asset/Loading.gif"}
+      alt="Loading"
+      width={70}
+      height={50}
+    />
+</div>
   }
 
   // ถ้าไม่มีข้อมูล error และไม่เจอ product

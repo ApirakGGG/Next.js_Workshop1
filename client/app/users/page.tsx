@@ -27,7 +27,7 @@ const Users = () => {
   return (
     <div>
       {isLoading ? (
-        <div className="flex justify-center divy-96">
+        <div className="flex justify-center mt-96">
           <Image
             src={"/Asset/Loading.gif"}
             alt="Loading"
